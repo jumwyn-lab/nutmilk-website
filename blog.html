@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Nutmilk</title>
+  <meta name="description" content="Thoughts on design, AI, and small business from Nutmilk." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Nutmilk<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <p class="label">Blog</p>
+        <h1 class="section-title">Thinking out<br /><em>loud</em></h1>
+        <p class="section-sub">Design, AI, and small business — written plainly, without the fluff.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Posts will live here. Add new ones at the top. -->
+        <div class="blog-list">
+
+          <a href="blog/post-template.html" class="blog-item">
+            <div class="blog-item-left">
+              <p class="blog-tag">AI</p>
+              <h3>Why Small Businesses Should Care About AI Right Now</h3>
+            </div>
+            <span class="blog-item-date">Coming soon</span>
+          </a>
+
+          <a href="#" class="blog-item">
+            <div class="blog-item-left">
+              <p class="blog-tag">Design</p>
+              <h3>The Five Brand Mistakes Most Small Businesses Make</h3>
+            </div>
+            <span class="blog-item-date">Coming soon</span>
+          </a>
+
+          <a href="#" class="blog-item">
+            <div class="blog-item-left">
+              <p class="blog-tag">Business</p>
+              <h3>What a Design Critique Actually Looks Like</h3>
+            </div>
+            <span class="blog-item-date">Coming soon</span>
+          </a>
+
+        </div>
+
+        <p style="margin-top:3rem; color:var(--text-muted); font-size:0.85rem;">
+          New posts added regularly. Have a topic you'd like us to cover? <a href="contact.html" style="color:var(--accent);">Let us know.</a>
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nutmilk<span>.</span></div>
+      <p class="footer-copy">&copy; 2025 Nutmilk. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

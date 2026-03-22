@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Title — Nutmilk Blog</title>
+  <meta name="description" content="Post description goes here." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .post-body { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+    .post-body h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .post-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 3rem; display: flex; gap: 1.5rem; }
+    .post-body p { color: var(--text-muted); margin-bottom: 1.4rem; font-size: 1rem; line-height: 1.8; }
+    .post-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--white);
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    .post-body strong { color: var(--text); font-weight: 500; }
+    .back-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); padding: 4rem 2rem 0; max-width:var(--max-w); margin:0 auto; display:block; }
+    .back-link:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Nutmilk<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../work.html">Our Work</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <a href="../blog.html" class="back-link">← Back to Blog</a>
+
+    <article class="post-body">
+      <p class="label">AI</p>
+      <h1>Why Small Businesses Should Care About AI Right Now</h1>
+      <div class="post-meta">
+        <span>Nutmilk</span>
+        <span>March 2025</span>
+        <span>5 min read</span>
+      </div>
+
+      <p>This is your first blog post. Replace this placeholder content with your real writing. Each post lives in the <strong>/blog/</strong> folder as its own HTML file — just duplicate this template, rename it, and update the content.</p>
+
+      <h2>A subheading goes here</h2>
+
+      <p>Write your paragraphs here. Keep it plain, honest, and useful. Your readers are small business owners — they don't have time for filler. Get to the point, give them value, and end with something worth remembering.</p>
+
+      <p>You can add as many paragraphs and subheadings as you need by copying the patterns above. When you're ready to add images, we'll walk through that together.</p>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nutmilk<span>.</span></div>
+      <p class="footer-copy">&copy; 2025 Nutmilk. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../work.html">Work</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

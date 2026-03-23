@@ -11,17 +11,24 @@
 
   <nav>
     <a href="index.html" class="nav-logo">Nutmilk<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="work.html" class="active">Our Work</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+    <div class="nav-pill">
+      <a href="services.html">Services</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </nav>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="services.html">Services</a>
+    <a href="work.html">Our Work</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Get in Touch</a>
+  </div>
 
   <main>
 
@@ -36,53 +43,14 @@
     <section class="section">
       <div class="container">
         <div class="work-grid">
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>Brand Identity · 2025</p>
-            </div>
-          </div>
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>Web Design · 2025</p>
-            </div>
-          </div>
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>AI Automation · 2025</p>
-            </div>
-          </div>
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>Design Critique · 2025</p>
-            </div>
-          </div>
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>Brand Identity · 2025</p>
-            </div>
-          </div>
-          <div class="work-item">
-            <div class="work-placeholder">Coming Soon</div>
-            <div class="work-overlay">
-              <h4>Project Title</h4>
-              <p>Web Design · 2025</p>
-            </div>
-          </div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>Brand Identity · 2025</p></div></div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>Web Design · 2025</p></div></div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>AI Automation · 2025</p></div></div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>Design Critique · 2025</p></div></div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>Brand Identity · 2025</p></div></div>
+          <div class="work-item"><div class="work-placeholder">Coming Soon</div><div class="work-overlay"><h4>Project Title</h4><p>Web Design · 2025</p></div></div>
         </div>
-
-        <p style="margin-top:4rem; color:var(--text-muted); font-size:0.9rem; text-align:center;">
-          Portfolio being built. Check back soon — or <a href="contact.html" style="color:var(--accent);">get in touch</a> to be our next project.
-        </p>
+        <p style="margin-top:4rem; color:var(--text-muted); font-size:0.88rem; text-align:center;">Portfolio being built. Check back soon — or <a href="contact.html" style="color:var(--accent);">get in touch</a> to be our next project.</p>
       </div>
     </section>
 

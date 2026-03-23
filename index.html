@@ -7,7 +7,7 @@
   <meta name="description" content="Nutmilk is a one-person design and AI automation agency helping small businesses look sharp and work smarter." />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── Hero enhancements ─────────────────────── */
+    /* ── Hero badge ────────────────────────────── */
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -16,7 +16,7 @@
       border: 1px solid rgba(96,165,250,0.25);
       border-radius: 999px;
       padding: 0.35rem 0.9rem;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -36,28 +36,32 @@
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      50% { opacity: 0.3; }
     }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3.2rem, 8vw, 7rem);
+
+    /* ── Hero headline ─────────────────────────── */
+    .hero-headline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
       line-height: 1.0;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       color: var(--white);
-      margin-bottom: 2rem;
-      max-width: 16ch;
+      margin-bottom: 1.8rem;
       opacity: 0;
       animation: fadeUp 0.9s var(--ease) 0.2s forwards;
     }
-    .hero h1 em {
+    .hero-headline .highlight {
       font-style: italic;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--accent);
     }
+
     .hero-sub {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 300;
       color: var(--text-muted);
-      max-width: 42ch;
+      max-width: 40ch;
       margin-bottom: 2.5rem;
       line-height: 1.75;
       opacity: 0;
@@ -68,7 +72,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
       opacity: 0;
       animation: fadeUp 0.9s var(--ease) 0.5s forwards;
     }
@@ -79,33 +83,14 @@
       opacity: 0;
       animation: fadeUp 0.9s var(--ease) 0.65s forwards;
     }
-    .hero-proof-line {
-      width: 32px;
-      height: 1px;
-      background: var(--border);
-    }
-    .hero-proof-text {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      font-style: italic;
-    }
-    .hero-proof-text strong {
-      color: var(--text);
-      font-weight: 400;
-      font-style: normal;
-    }
+    .hero-proof-line { width: 28px; height: 1px; background: var(--border); }
+    .hero-proof-text { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; font-style: italic; }
+    .hero-proof-text strong { color: var(--text); font-weight: 500; font-style: normal; }
 
-    /* ── Glow orb ──────────────────────────────── */
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -20%;
-      left: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(96,165,250,0.04) 0%, transparent 70%);
-      pointer-events: none;
+    /* ── Hero image frame ──────────────────────── */
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.3s forwards;
     }
 
     /* ── Stats strip ───────────────────────────── */
@@ -123,117 +108,28 @@
       gap: 2rem;
       text-align: center;
     }
-    .stat-divider {
-      border-left: 1px solid var(--border);
-    }
+    .stat-divider { border-left: 1px solid var(--border); }
     .stat-num {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 0.4rem;
     }
     .stat-num span { color: var(--accent); }
-    .stat-label {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+    .stat-label { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
 
     /* ── CTA band ──────────────────────────────── */
-    .cta-band {
-      padding: 5rem 2rem;
-      background: var(--bg-2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .cta-band-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    /* ── Pill CTA button ───────────────────────── */
-    .btn-pill {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 999px;
-      padding: 0.5rem 0.5rem 0.5rem 1.4rem;
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      overflow: hidden;
-      transition: border-color 0.3s, color 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-pill::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #ffffff;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      border-radius: 999px;
-    }
-    .btn-pill:hover::before {
-      transform: translateX(0);
-    }
-    .btn-pill:hover {
-      border-color: #ffffff;
-      color: #0a0a0a;
-    }
-    .btn-pill-text {
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s;
-    }
-    .btn-pill:hover .btn-pill-text {
-      color: #0a0a0a;
-    }
-    .btn-pill-icon {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      color: var(--text);
-      transition: background 0.3s, color 0.3s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      flex-shrink: 0;
-    }
-    .btn-pill-icon svg {
-      transform: rotate(-45deg);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-pill:hover .btn-pill-icon {
-      background: #0a0a0a;
-      color: #ffffff;
-    }
-    .btn-pill:hover .btn-pill-icon svg {
-      transform: rotate(0deg);
-    }
+    .cta-band { padding: 5rem 2rem; background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-band-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
 
     @media (max-width: 768px) {
       .stats-inner { grid-template-columns: 1fr; }
       .stat-divider { border-left: none; border-top: 1px solid var(--border); padding-top: 2rem; }
       .cta-band-inner { flex-direction: column; }
+      .hero-headline { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     }
   </style>
 </head>
@@ -242,40 +138,71 @@
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">Nutmilk<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="work.html">Our Work</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+    <div class="nav-pill">
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="services.html">Services</a>
+    <a href="work.html">Our Work</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Get in Touch</a>
+  </div>
 
   <main>
 
     <!-- HERO -->
     <section class="hero">
       <div class="hero-inner">
-        <div class="hero-badge">Available for new projects</div>
-        <h1>Sharp design.<br /><em>Smarter</em><br />business.</h1>
-        <p class="hero-sub">Nutmilk helps small businesses build a brand worth noticing — and plug in AI tools that actually save you time.</p>
-        <div class="hero-actions">
-          <a href="services.html" class="btn-pill">
-            <span class="btn-pill-text">See What We Do</span>
-            <span class="btn-pill-icon">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </a>
-          <a href="work.html" class="btn btn-ghost">View Our Work</a>
+        <div class="hero-left">
+          <div class="hero-badge">Available for new projects</div>
+          <h1 class="hero-headline">Sharp design.<br /><span class="highlight">Smarter</span><br />business.</h1>
+          <p class="hero-sub">Nutmilk helps small businesses build a brand worth noticing — and plug in AI tools that actually save you time.</p>
+          <div class="hero-actions">
+            <a href="services.html" class="btn-pill">
+              <span class="btn-pill-text">See What We Do</span>
+              <span class="btn-pill-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="hero-proof">
+            <div class="hero-proof-line"></div>
+            <p class="hero-proof-text"><strong>One agency.</strong> Design, AI &amp; strategy — built for small business.</p>
+          </div>
         </div>
-        <div class="hero-proof">
-          <div class="hero-proof-line"></div>
-          <p class="hero-proof-text"><strong>One agency.</strong> Design, AI &amp; strategy — built for small business.</p>
+        <div class="hero-right">
+          <div class="hero-image-frame">
+            <!-- Replace the div below with an <img> tag when you have your photo -->
+            <!-- Example: <img src="images/hero.jpg" alt="Nutmilk agency work" /> -->
+            <div class="hero-image-placeholder">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="32" height="32" rx="4" stroke="#f0ece4" stroke-width="1.5"/>
+                <circle cx="14" cy="15" r="3" stroke="#f0ece4" stroke-width="1.5"/>
+                <path d="M4 27L13 18L19 24L25 19L36 27" stroke="#f0ece4" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <p>Add your image here</p>
+            </div>
+            <div class="hero-image-tag">
+              <div>
+                <div class="hero-image-tag-text">Currently working with clients</div>
+                <div class="hero-image-tag-sub">Design &amp; AI · Stanley, UK</div>
+              </div>
+              <div class="hero-image-tag-dot"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -340,7 +267,14 @@
           </div>
         </div>
         <div style="margin-top:2.5rem;">
-          <a href="services.html" class="btn btn-ghost">All Services →</a>
+          <a href="services.html" class="btn-pill">
+            <span class="btn-pill-text">All Services</span>
+            <span class="btn-pill-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -353,28 +287,26 @@
         <div class="work-grid">
           <div class="work-item">
             <div class="work-placeholder">Project Image</div>
-            <div class="work-overlay">
-              <h4>Coming Soon</h4>
-              <p>Portfolio case study</p>
-            </div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
           </div>
           <div class="work-item">
             <div class="work-placeholder">Project Image</div>
-            <div class="work-overlay">
-              <h4>Coming Soon</h4>
-              <p>Portfolio case study</p>
-            </div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
           </div>
           <div class="work-item">
             <div class="work-placeholder">Project Image</div>
-            <div class="work-overlay">
-              <h4>Coming Soon</h4>
-              <p>Portfolio case study</p>
-            </div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
           </div>
         </div>
         <div style="margin-top:2.5rem;">
-          <a href="work.html" class="btn btn-ghost">View All Work →</a>
+          <a href="work.html" class="btn-pill">
+            <span class="btn-pill-text">View All Work</span>
+            <span class="btn-pill-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -386,7 +318,14 @@
           <p class="label">Ready to start?</p>
           <h2 class="section-title" style="margin-bottom:0;">Let's build something<br /><em>worth talking about.</em></h2>
         </div>
-        <a href="contact.html" class="btn btn-primary" style="flex-shrink:0;">Get in Touch</a>
+        <a href="contact.html" class="btn-pill" style="flex-shrink:0;">
+          <span class="btn-pill-text">Get in Touch</span>
+          <span class="btn-pill-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
       </div>
     </div>
 

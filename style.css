@@ -49,7 +49,11 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  background: transparent;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
 }
 .nav-logo {
   font-family: var(--font-body);

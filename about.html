@@ -35,10 +35,15 @@
     .story-inner {
       max-width: var(--max-w);
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .story-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
-      align-items: center;
+      align-items: start;
     }
     .story-text {}
     .story-text .label { margin-bottom: 1rem; }
@@ -65,7 +70,7 @@
     }
     .story-image-frame {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/7;
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border);
@@ -250,22 +255,6 @@
           <p style="font-family:'Inter',sans-serif; font-weight:600; font-size:11px; line-height:18px; color:rgb(96,165,250); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Our Story</p>
           <h2>Built for businesses that deserve better.</h2>
           <p>We work with small businesses, start-ups and scale-ups who are ready to stop blending in. Whether you're launching something new or dragging an existing brand into the modern era — Nutmilk is the studio that makes it happen cleanly, quickly, and without the agency theatre.</p>
-          <p>We specialise in three things:</p>
-          <ul style="margin:0.75rem 0 1rem 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-            <li style="display:flex; align-items:flex-start; gap:0.6rem; font-size:0.95rem; color:var(--text-muted); font-weight:300; line-height:1.6;">
-              <span style="width:16px; height:16px; border-radius:50%; background:rgba(96,165,250,0.15); border:1px solid rgba(96,165,250,0.3); background-image:url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%2360a5fa' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center; flex-shrink:0; margin-top:2px; display:inline-block;"></span>
-              Website design that converts
-            </li>
-            <li style="display:flex; align-items:flex-start; gap:0.6rem; font-size:0.95rem; color:var(--text-muted); font-weight:300; line-height:1.6;">
-              <span style="width:16px; height:16px; border-radius:50%; background:rgba(96,165,250,0.15); border:1px solid rgba(96,165,250,0.3); background-image:url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%2360a5fa' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center; flex-shrink:0; margin-top:2px; display:inline-block;"></span>
-              AI automations that buy back your time
-            </li>
-            <li style="display:flex; align-items:flex-start; gap:0.6rem; font-size:0.95rem; color:var(--text-muted); font-weight:300; line-height:1.6;">
-              <span style="width:16px; height:16px; border-radius:50%; background:rgba(96,165,250,0.15); border:1px solid rgba(96,165,250,0.3); background-image:url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%2360a5fa' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center; flex-shrink:0; margin-top:2px; display:inline-block;"></span>
-              Brand direction that actually reflects who you are
-            </li>
-          </ul>
-          <p>Years of CRO experience means we don't just make things look good — we make them work harder.</p>
           <p>And the name? <strong style="color:#ffffff; font-weight:500;">Nutmilk is a vibe.</strong> We're the kind of studio that keeps nutmilk stocked in the fridge — the ones quietly doing things a better way before everyone else catches up. Better ingredients, better output, better for the brands we work with. We care about wellness, sustainability, and the kind of work that feels good to put your name on.</p>
           <p>If that sounds like your kind of agency, you're in the right place.</p>
           <div style="margin-top:2rem;">
@@ -277,7 +266,8 @@
             </a>
           </div>
         </div>
-        <div class="story-image">
+        </div><!-- close story-top -->
+        <div class="story-image" style="width:100%;">
           <div class="story-image-frame">
             <img src="nutmilk-about-fridge.png" alt="Nutmilk — better ingredients, better output" />
           </div>

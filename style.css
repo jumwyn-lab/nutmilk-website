@@ -48,7 +48,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 3rem;
   background: transparent;
 }
 .nav-logo {
@@ -91,18 +91,52 @@ nav {
   background: rgba(255,255,255,0.06);
 }
 .nav-pill .nav-cta {
-  font-size: 0.78rem !important;
-  font-weight: 600 !important;
-  color: #0a0a0a !important;
-  background: var(--white) !important;
-  padding: 0.5rem 1.1rem !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: var(--bg) !important;
+  background: var(--accent) !important;
+  padding: 0.42rem 0.42rem 0.42rem 1rem !important;
   border-radius: 999px !important;
+  letter-spacing: 0.02em !important;
+  overflow: hidden !important;
   transition: background 0.2s !important;
-  letter-spacing: 0.01em !important;
+  white-space: nowrap !important;
 }
-.nav-pill .nav-cta:hover {
-  background: rgba(255,255,255,0.85) !important;
+.nav-pill .nav-cta::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: #ffffff !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 999px !important;
 }
+.nav-pill .nav-cta:hover::before { transform: translateX(0) !important; }
+.nav-pill .nav-cta:hover { color: var(--bg) !important; background: var(--accent) !important; }
+.nav-cta-text { position: relative; z-index: 1; }
+.nav-cta-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.nav-cta-icon svg {
+  transform: rotate(-45deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-pill .nav-cta:hover .nav-cta-icon { background: rgba(0,0,0,0.2); }
+.nav-pill .nav-cta:hover .nav-cta-icon svg { transform: rotate(0deg); }
 
 /* Mobile nav toggle */
 .nav-toggle {
@@ -128,9 +162,11 @@ nav {
   position: fixed;
   top: var(--nav-h);
   left: 0; right: 0;
-  background: var(--bg);
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 2rem 2rem;
   gap: 1.25rem;
   z-index: 99;
 }

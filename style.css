@@ -94,21 +94,50 @@ nav {
   color: var(--text);
   background: rgba(255,255,255,0.06);
 }
+/* ── Nav CTA — glow spin border + hover white fill ── */
+.nav-cta-wrap {
+  position: relative;
+  border-radius: 999px;
+  padding: 2px;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.nav-cta-spinner {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #1A8FE3 15%,
+    #2CB89A 35%,
+    #3BBFA0 45%,
+    transparent 55%,
+    transparent 100%
+  );
+  animation: spinGlow 4s linear infinite;
+}
+@keyframes spinGlow {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .nav-pill .nav-cta {
   position: relative !important;
+  z-index: 1 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
   font-size: 0.75rem !important;
   font-weight: 500 !important;
-  color: var(--bg) !important;
-  background: var(--accent) !important;
+  color: #ffffff !important;
+  background: #0a0a0a !important;
   padding: 0.42rem 0.42rem 0.42rem 1rem !important;
   border-radius: 999px !important;
   letter-spacing: 0.02em !important;
   overflow: hidden !important;
-  transition: background 0.2s !important;
+  transition: color 0.3s !important;
   white-space: nowrap !important;
+  text-decoration: none !important;
 }
 .nav-pill .nav-cta::before {
   content: '' !important;
@@ -118,10 +147,14 @@ nav {
   transform: translateX(100%) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   border-radius: 999px !important;
+  z-index: 0 !important;
 }
 .nav-pill .nav-cta:hover::before { transform: translateX(0) !important; }
-.nav-pill .nav-cta:hover { color: var(--bg) !important; background: var(--accent) !important; }
-.nav-cta-text { position: relative; z-index: 1; }
+.nav-pill .nav-cta:hover { color: #0a0a0a !important; }
+.nav-cta-text {
+  position: relative;
+  z-index: 1;
+}
 .nav-cta-icon {
   position: relative;
   z-index: 1;
@@ -131,15 +164,19 @@ nav {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.12);
   flex-shrink: 0;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
+  color: #ffffff;
 }
 .nav-cta-icon svg {
   transform: rotate(-45deg);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nav-pill .nav-cta:hover .nav-cta-icon { background: rgba(0,0,0,0.2); }
+.nav-pill .nav-cta:hover .nav-cta-icon {
+  background: rgba(0,0,0,0.12);
+  color: #0a0a0a;
+}
 .nav-pill .nav-cta:hover .nav-cta-icon svg { transform: rotate(0deg); }
 
 /* Mobile nav toggle */

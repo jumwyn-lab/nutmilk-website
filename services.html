@@ -13,7 +13,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       margin-top: 4rem;
-      align-items: start;
+      align-items: stretch;
     }
     .pricing-card {
       background: var(--accent-fill);
@@ -154,8 +154,23 @@
       background-position: center;
     }
 
+        /* ── Fix pill button layout inside cards ───── */
+    .pricing-card .btn-pill {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .pricing-card { order: 0; }
+      .pricing-card:nth-child(1) { order: 1; }
+      .pricing-card.featured { order: 2; }
+      .pricing-card:nth-child(3) { order: 3; }
     }
   </style>
 </head>

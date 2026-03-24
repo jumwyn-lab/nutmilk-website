@@ -159,6 +159,38 @@
       justify-content: space-between;
     }
 
+    /* ── Green highlight for Website Build ─────── */
+    .pricing-card.green {
+      background: rgba(74, 222, 128, 0.04);
+      border-color: rgba(74, 222, 128, 0.25);
+    }
+    .pricing-card.green::before {
+      background: linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent);
+    }
+    .pricing-card.green:hover {
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.45);
+    }
+    .pricing-card.green .pricing-badge {
+      background: rgba(74, 222, 128, 0.15);
+      border-color: rgba(74, 222, 128, 0.35);
+      color: #4ade80;
+    }
+    .pricing-card.green .card-num,
+    .pricing-card.green .pricing-includes-label { color: #4ade80; }
+    .pricing-card.green .pricing-includes li::before {
+      background-color: rgba(74, 222, 128, 0.15);
+      border-color: rgba(74, 222, 128, 0.35);
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%234ade80' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    .pricing-card.green .btn-pill {
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+    .pricing-card.green .btn-pill:hover {
+      border-color: #4ade80;
+    }
+    .pricing-card.green .pricing-service-name { color: #ffffff; }
+
     @media (max-width: 900px) {
       .pricing-grid {
         grid-template-columns: 1fr;
@@ -178,18 +210,20 @@
   <nav>
     <a href="index.html" class="nav-logo">Nutmilk<span>.</span></a>
     <div class="nav-pill">
+      <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
       <a href="work.html">Work</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
-      <a href="contact.html" class="nav-cta">Get in Touch</a>
+      <a href="contact.html" class="nav-cta"><span class="nav-cta-text">Get in Touch</span><span class="nav-cta-icon"><svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a href="services.html">Services</a>
+    <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
     <a href="work.html">Our Work</a>
     <a href="blog.html">Blog</a>
     <a href="about.html">About</a>
@@ -212,7 +246,7 @@
         <div class="pricing-grid">
 
           <!-- UX REVIEW -->
-          <div class="pricing-card">
+          <div class="pricing-card featured">
             <div class="pricing-card-header">
               <div class="pricing-service-name">UX Review</div>
               <div class="pricing-sub">A sharp, honest audit of your existing website or brand — with a clear action plan to fix it.</div>
@@ -245,7 +279,7 @@
           </div>
 
           <!-- WEBSITE BUILD -->
-          <div class="pricing-card featured">
+          <div class="pricing-card featured green">
             <div class="pricing-card-header">
               <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
                 <div class="pricing-service-name" style="margin-bottom:0;">Website Build</div>
@@ -283,7 +317,7 @@
           </div>
 
           <!-- AUTOMATION PROGRAMME -->
-          <div class="pricing-card">
+          <div class="pricing-card featured">
             <div class="pricing-card-header">
               <div class="pricing-service-name">Automation Programme</div>
               <div class="pricing-sub">A full AI audit and implementation programme that saves you hours every single week.</div>
@@ -345,7 +379,8 @@
       <div class="footer-logo">Nutmilk<span>.</span></div>
       <p class="footer-copy">&copy; 2025 Nutmilk. All rights reserved.</p>
       <ul class="footer-links">
-        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html">Home</a>
+      <a href="services.html">Services</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>

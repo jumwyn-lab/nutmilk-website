@@ -35,11 +35,6 @@
     .story-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-    .story-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
@@ -70,7 +65,7 @@
     }
     .story-image-frame {
       width: 100%;
-      aspect-ratio: 16/7;
+      aspect-ratio: 4/3;
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border);
@@ -252,7 +247,7 @@
     <section class="story-section">
       <div class="story-inner">
         <div class="story-text">
-          <p style="font-family:'Inter',sans-serif; font-weight:600; font-size:11px; line-height:18px; color:rgb(96,165,250); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Our Story</p>
+          <p style="font-family:'Inter',sans-serif; font-weight:600; font-size:11px; line-height:18px; color:rgb(96,165,250); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">About</p>
           <h2>Built for businesses that deserve better.</h2>
           <p>We work with small businesses, start-ups and scale-ups who are ready to stop blending in. Whether you're launching something new or dragging an existing brand into the modern era — Nutmilk is the studio that makes it happen cleanly, quickly, and without the agency theatre.</p>
           <p>And the name? <strong style="color:#ffffff; font-weight:500;">Nutmilk is a vibe.</strong> We're the kind of studio that keeps nutmilk stocked in the fridge — the ones quietly doing things a better way before everyone else catches up. Better ingredients, better output, better for the brands we work with. We care about wellness, sustainability, and the kind of work that feels good to put your name on.</p>
@@ -266,8 +261,7 @@
             </a>
           </div>
         </div>
-        </div><!-- close story-top -->
-        <div class="story-image" style="width:100%;">
+        <div class="story-image">
           <div class="story-image-frame">
             <img src="nutmilk-about-fridge.png" alt="Nutmilk — better ingredients, better output" />
           </div>

@@ -6,6 +6,158 @@
   <title>Services — Nutmilk</title>
   <meta name="description" content="Digital design, AI automations, and design critique for small businesses." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Pricing grid ───────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 4rem;
+      align-items: start;
+    }
+    .pricing-card {
+      background: var(--accent-fill);
+      border: 1px solid var(--accent-glow);
+      border-radius: 20px;
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s var(--ease);
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,0.35), transparent);
+    }
+    .pricing-card:hover {
+      border-color: rgba(96,165,250,0.3);
+      transform: translateY(-4px);
+    }
+    .pricing-card.featured {
+      background: rgba(96,165,250,0.08);
+      border-color: rgba(96,165,250,0.35);
+    }
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(96,165,250,0.15);
+      border: 1px solid rgba(96,165,250,0.3);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+    .pricing-card-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-service-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .pricing-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .pricing-price-block {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-was {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 0.25rem;
+      font-weight: 300;
+    }
+    .pricing-now {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+    .pricing-currency {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .pricing-amount {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .pricing-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      font-weight: 300;
+    }
+    .pricing-includes {
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+    .pricing-includes-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .pricing-includes ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .pricing-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .pricing-includes li::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(96,165,250,0.15);
+      border: 1px solid rgba(96,165,250,0.3);
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%2360a5fa' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    }
+  </style>
 </head>
 <body>
 
@@ -35,71 +187,132 @@
     <div class="page-hero">
       <div class="page-hero-inner">
         <p class="label">Services</p>
-        <h1 class="section-title">What Nutmilk<br /><em>can do for you</em></h1>
-        <p class="section-sub">One agency. Three focuses. All designed to help small businesses grow with confidence.</p>
+        <h1 class="section-title">Simple pricing.<br /><em>Real results.</em></h1>
+        <p class="section-sub">Three focused services designed for small businesses. No retainers, no hidden costs — just clear, honest work.</p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
-        <div class="about-grid">
-          <div>
-            <span class="card-num">01</span>
-            <h2 class="section-title">Digital Design</h2>
-            <p class="section-sub">Great design isn't decoration — it's communication. We create visual identities and web experiences that make the right first impression, every time.</p>
+
+        <div class="pricing-grid">
+
+          <!-- UX REVIEW -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="pricing-service-name">UX Review</div>
+              <div class="pricing-sub">A sharp, honest audit of your existing website or brand — with a clear action plan to fix it.</div>
+            </div>
+            <div class="pricing-price-block">
+              <div class="pricing-was">£399</div>
+              <div class="pricing-now">
+                <span class="pricing-currency">£</span>
+                <span class="pricing-amount">299</span>
+              </div>
+              <div class="pricing-note">One-off project · Delivered in 5 working days</div>
+            </div>
+            <div class="pricing-includes">
+              <div class="pricing-includes-label">What's included</div>
+              <ul>
+                <li>Full review of your website or brand</li>
+                <li>Heuristic usability evaluation</li>
+                <li>Visual design critique</li>
+                <li>Mobile & desktop assessment</li>
+                <li>Prioritised action report (PDF)</li>
+                <li>30-minute walkthrough call</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn-pill">
+              <span class="btn-pill-text">Get in Touch</span>
+              <span class="btn-pill-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
           </div>
-          <div class="card-grid" style="margin-top:0; grid-template-columns:1fr;">
-            <div class="card"><h3>Brand Identity</h3><p>Logo design, colour palettes, typography systems, and brand guidelines your whole team can use.</p></div>
-            <div class="card"><h3>Web Design</h3><p>Clean, fast, mobile-friendly websites designed to convert visitors into customers.</p></div>
-            <div class="card"><h3>Visual Direction</h3><p>Art direction, layout, and visual storytelling for social media, print, and beyond.</p></div>
+
+          <!-- WEBSITE BUILD -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card-header">
+              <div class="pricing-service-name">Website Build</div>
+              <div class="pricing-sub">A fast, clean, custom website built to represent your business and convert visitors.</div>
+            </div>
+            <div class="pricing-price-block">
+              <div class="pricing-was">£1,999</div>
+              <div class="pricing-now">
+                <span class="pricing-currency">£</span>
+                <span class="pricing-amount">1,499</span>
+              </div>
+              <div class="pricing-note">One-off project · Delivered in 2–3 weeks</div>
+            </div>
+            <div class="pricing-includes">
+              <div class="pricing-includes-label">What's included</div>
+              <ul>
+                <li>Up to 6 pages designed & built</li>
+                <li>Mobile-first responsive design</li>
+                <li>Custom brand integration</li>
+                <li>Contact form setup</li>
+                <li>SEO foundations & meta tags</li>
+                <li>Cloudflare hosting setup</li>
+                <li>2 rounds of revisions</li>
+                <li>30-day post-launch support</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn-pill">
+              <span class="btn-pill-text">Get in Touch</span>
+              <span class="btn-pill-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
           </div>
+
+          <!-- AUTOMATION PROGRAMME -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="pricing-service-name">Automation Programme</div>
+              <div class="pricing-sub">A full AI audit and implementation programme that saves you hours every single week.</div>
+            </div>
+            <div class="pricing-price-block">
+              <div class="pricing-was">£3,999</div>
+              <div class="pricing-now">
+                <span class="pricing-currency">£</span>
+                <span class="pricing-amount">2,999</span>
+              </div>
+              <div class="pricing-note">One-off project · Delivered over 4 weeks</div>
+            </div>
+            <div class="pricing-includes">
+              <div class="pricing-includes-label">What's included</div>
+              <ul>
+                <li>Full business workflow audit</li>
+                <li>AI tools strategy & roadmap</li>
+                <li>Setup of up to 5 automations</li>
+                <li>Custom prompt engineering</li>
+                <li>Staff onboarding & training</li>
+                <li>Documentation & guides</li>
+                <li>60-day check-in support</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn-pill">
+              <span class="btn-pill-text">Get in Touch</span>
+              <span class="btn-pill-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+
         </div>
+
+        <p style="margin-top:3rem; text-align:center; font-size:0.82rem; color:var(--text-muted); font-weight:300;">Not sure which is right for you? <a href="contact.html" style="color:var(--accent);">Drop us a message</a> and we'll point you in the right direction.</p>
+
       </div>
     </section>
 
-    <hr class="divider" />
-
-    <section class="section">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <span class="card-num">02</span>
-            <h2 class="section-title">AI Automations</h2>
-            <p class="section-sub">AI isn't just for big companies. We help small businesses find the right tools and wire them up — so you spend less time on admin and more time doing your best work.</p>
-          </div>
-          <div class="card-grid" style="margin-top:0; grid-template-columns:1fr;">
-            <div class="card"><h3>AI Onboarding</h3><p>We walk you through the AI landscape in plain English and set you up with the tools that actually fit your business.</p></div>
-            <div class="card"><h3>Workflow Automation</h3><p>From email responses to content scheduling — we identify repetitive tasks and automate them intelligently.</p></div>
-            <div class="card"><h3>Ongoing Support</h3><p>AI moves fast. We stay current so you don't have to, and keep your setup working as tools evolve.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <section class="section">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <span class="card-num">03</span>
-            <h2 class="section-title">Design Critique</h2>
-            <p class="section-sub">Sometimes you just need a sharp, honest eye. We review your existing brand or website and tell you exactly what's working, what isn't, and what to do about it.</p>
-          </div>
-          <div class="card-grid" style="margin-top:0; grid-template-columns:1fr;">
-            <div class="card"><h3>Brand Audit</h3><p>A structured review of your logo, colours, fonts, and overall visual consistency.</p></div>
-            <div class="card"><h3>Website Review</h3><p>We look at your site through a customer's eyes — design, copy, structure, and user experience.</p></div>
-            <div class="card"><h3>Action Report</h3><p>You receive a clear written report with prioritised improvements — no jargon, just next steps.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- CTA -->
     <section style="padding:5rem 2rem; background:var(--bg-2); border-top:1px solid var(--border);">
       <div style="max-width:var(--max-w); margin:0 auto; text-align:center;">
-        <p class="label">Work with us</p>
-        <h2 class="section-title">Not sure where to start?</h2>
-        <p class="section-sub" style="margin:0 auto 2rem; text-align:center;">Drop us a message and we'll figure out what your business actually needs — no pressure, no sales pitch.</p>
+        <p class="label">Ready to start?</p>
+        <h2 class="section-title">Let's talk about<br /><em>your project.</em></h2>
+        <p class="section-sub" style="margin:0 auto 2rem; text-align:center;">No commitment, no pressure. Just an honest conversation about what your business needs.</p>
         <a href="contact.html" class="btn-pill">
           <span class="btn-pill-text">Get in Touch</span>
           <span class="btn-pill-icon">

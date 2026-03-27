@@ -6,11 +6,12 @@
   <title>Contact — Nutmilk</title>
   <meta name="description" content="Get in touch with Nutmilk — design and AI for small businesses." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="Nutmilk-Icon.svg" />
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">Nutmilk<span>.</span></a>
+    <a href="index.html" class="nav-logo"><img src="Nutmilk-Icon.svg" alt="Nutmilk icon" style="width:32px;height:32px;display:inline-block;vertical-align:middle;margin-right:0.3rem;position:relative;top:-1px;" />Nutmilk<span>.</span></a>
     <div class="nav-pill">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -19,8 +20,15 @@
       <a href="about.html">About</a>
       <span class="nav-cta-wrap"><span class="nav-cta-spinner"></span><a href="contact.html" class="nav-cta"><span class="nav-cta-text">Get in Touch</span><span class="nav-cta-icon"><svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></span>
     </div>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
-      <span></span><span></span><span></span>
+    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle" onclick="
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.getElementById('navToggle');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    ">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
     </button>
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">

@@ -190,12 +190,23 @@ nav {
   padding: 4px;
   z-index: 2;
 }
-.nav-toggle span {
+.nav-toggle .bar {
   display: block;
   width: 24px;
   height: 1.5px;
   background: var(--text);
-  transition: transform 0.3s var(--ease), opacity 0.3s;
+  transition: transform 0.35s var(--ease), opacity 0.25s, width 0.3s;
+  transform-origin: center;
+}
+.nav-toggle.open .bar1 {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-toggle.open .bar2 {
+  opacity: 0;
+  width: 0;
+}
+.nav-toggle.open .bar3 {
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 .nav-mobile-menu {
   display: none;

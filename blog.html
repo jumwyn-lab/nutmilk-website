@@ -7,6 +7,102 @@
   <meta name="description" content="Thoughts on design, AI, and small business from Nutmilk." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/svg+xml" href="Nutmilk-Icon.svg" />
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 4rem;
+    }
+    .blog-tile {
+      background: var(--accent-fill);
+      border: 1px solid var(--accent-glow);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s var(--ease);
+      text-decoration: none;
+      color: inherit;
+    }
+    .blog-tile:hover {
+      border-color: rgba(96,165,250,0.3);
+      transform: translateY(-3px);
+    }
+    .blog-tile-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .blog-tile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-tile-image-placeholder {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--border);
+    }
+    .blog-tile-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.6rem;
+    }
+    .blog-tile-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .blog-tile-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .blog-tile-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .blog-tile-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .blog-tile-read {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .blog-tile-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+    }
+    .blog-tile.coming-soon {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -33,7 +129,7 @@
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
+    <a href="services.html">Services</a>
     <a href="work.html">Our Work</a>
     <a href="blog.html">Blog</a>
     <a href="about.html">About</a>
@@ -52,30 +148,61 @@
 
     <section class="section">
       <div class="container">
-        <div class="blog-list">
-          <a href="blog/post-1.html" class="blog-item">
-            <div class="blog-item-left">
-              <p class="blog-tag">AI</p>
-              <h3>Why Small Businesses Should Care About AI Right Now</h3>
+
+        <div class="blog-grid">
+
+          <!-- Post 1 — Live -->
+          <a href="blog/post-1.html" class="blog-tile">
+            <div class="blog-tile-image">
+              <!-- Replace with: <img src="blog/post-1-hero.jpg" alt="Why Small Businesses Should Care About AI" /> -->
+              <span class="blog-tile-image-placeholder">Post Image</span>
             </div>
-            <span class="blog-item-date">Coming soon</span>
-          </a>
-          <a href="#" class="blog-item">
-            <div class="blog-item-left">
-              <p class="blog-tag">Design</p>
-              <h3>The Five Brand Mistakes Most Small Businesses Make</h3>
+            <div class="blog-tile-body">
+              <div class="blog-tile-meta">
+                <span class="blog-tile-tag">AI</span>
+                <span class="blog-tile-dot"></span>
+                <span class="blog-tile-date">April 2026</span>
+                <span class="blog-tile-dot"></span>
+                <span class="blog-tile-read">5 min read</span>
+              </div>
+              <div class="blog-tile-title">Why Small Businesses Should Care About AI Right Now</div>
             </div>
-            <span class="blog-item-date">Coming soon</span>
           </a>
-          <a href="#" class="blog-item">
-            <div class="blog-item-left">
-              <p class="blog-tag">Business</p>
-              <h3>What a Design Critique Actually Looks Like</h3>
+
+          <!-- Post 2 — Coming Soon -->
+          <div class="blog-tile coming-soon">
+            <div class="blog-tile-image">
+              <span class="blog-tile-image-placeholder">Coming Soon</span>
             </div>
-            <span class="blog-item-date">Coming soon</span>
-          </a>
+            <div class="blog-tile-body">
+              <div class="blog-tile-meta">
+                <span class="blog-tile-tag">Design</span>
+                <span class="blog-tile-dot"></span>
+                <span class="blog-tile-date">Coming soon</span>
+              </div>
+              <div class="blog-tile-title">The Five Brand Mistakes Most Small Businesses Make</div>
+            </div>
+          </div>
+
+          <!-- Post 3 — Coming Soon -->
+          <div class="blog-tile coming-soon">
+            <div class="blog-tile-image">
+              <span class="blog-tile-image-placeholder">Coming Soon</span>
+            </div>
+            <div class="blog-tile-body">
+              <div class="blog-tile-meta">
+                <span class="blog-tile-tag">Business</span>
+                <span class="blog-tile-dot"></span>
+                <span class="blog-tile-date">Coming soon</span>
+              </div>
+              <div class="blog-tile-title">What a Design Critique Actually Looks Like</div>
+            </div>
+          </div>
+
         </div>
+
         <p style="margin-top:3rem; color:var(--text-muted); font-size:0.85rem;">New posts added regularly. Have a topic you'd like us to cover? <a href="contact.html" style="color:var(--accent);">Let us know.</a></p>
+
       </div>
     </section>
 

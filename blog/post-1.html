@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Small Businesses Should Care About AI Right Now — Nutmilk Blog</title>
+  <meta name="description" content="Most small business owners think AI is too expensive or too complex. It's not. Here's why now is the time to pay attention." />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/svg+xml" href="../Nutmilk-Icon.svg" />
+  <style>
+    .post-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .post-back:hover { color: var(--text); }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .post-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .post-body p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.6rem;
+    }
+    .post-body p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .post-body h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin: 3rem 0 1rem;
+      line-height: 1.2;
+    }
+    .post-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 2rem 0 0.75rem;
+    }
+    .post-cta {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: var(--accent-fill);
+      border: 1px solid var(--accent-glow);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,0.4), transparent);
+    }
+    .post-cta p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .post-cta-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a href="../index.html" class="nav-logo"><img src="../Nutmilk-Icon.svg" alt="Nutmilk icon" style="width:32px;height:32px;display:inline-block;vertical-align:middle;margin-right:0.3rem;position:relative;top:-1px;" />Nutmilk<span>.</span></a>
+    <div class="nav-pill">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../blog.html" class="active">Blog</a>
+      <a href="../about.html">About</a>
+      <span class="nav-cta-wrap"><span class="nav-cta-spinner"></span><a href="../contact.html" class="nav-cta"><span class="nav-cta-text">Get in Touch</span><span class="nav-cta-icon"><svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle" onclick="
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.getElementById('navToggle');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    ">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../services.html">Services</a>
+    <a href="../work.html">Our Work</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Get in Touch</a>
+  </div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="../blog.html" class="post-back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Blog
+      </a>
+
+      <span class="post-tag">AI</span>
+      <h1 class="post-title">Why Small Businesses Should Care About AI Right Now</h1>
+
+      <div class="post-meta">
+        <span>Nutmilk Studio</span>
+        <span>March 2026</span>
+        <span>5 min read</span>
+      </div>
+
+      <div class="post-body">
+        <p>Coming soon — article in progress.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="post-cta">
+        <div class="post-cta-title">Ready to bring AI into your business?</div>
+        <p>We help small businesses find the right tools and set them up properly — no jargon, no overwhelm. Just practical automation that saves you time from week one.</p>
+        <a href="../contact.html" class="btn-pill">
+          <span class="btn-pill-text">Get in Touch</span>
+          <span class="btn-pill-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nutmilk<span>.</span></div>
+      <p class="footer-copy">&copy; 2026 Nutmilk. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../work.html">Work</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -390,15 +390,16 @@ main { padding-top: var(--nav-h); }
   transition: border-color 0.3s, color 0.3s;
   cursor: pointer;
   text-decoration: none;
+  isolation: isolate;
 }
 .btn-pill::before {
   content: '';
   position: absolute;
   inset: 0;
   background: #ffffff;
-  transform: translateX(100%);
+  transform: translateX(101%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 999px;
+  border-radius: 0;
 }
 .btn-pill:hover::before { transform: translateX(0); }
 .btn-pill:hover { border-color: #ffffff; color: #0a0a0a; }

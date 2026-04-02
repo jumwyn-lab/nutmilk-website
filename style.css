@@ -1,656 +1,336 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutmilk — Design & AI for Small Business</title>
+  <meta name="description" content="Nutmilk is a one-person design and AI automation agency helping small businesses look sharp and work smarter." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="Nutmilk-Icon.svg" />
+  <style>
+    /* ── Hero badge ────────────────────────────── */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(96,165,250,0.08);
+      border: 1px solid rgba(96,165,250,0.25);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 0.05s forwards;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
-/* ── Variables ─────────────────────────────────── */
-:root {
-  --bg:        #0a0a0a;
-  --bg-2:      #111111;
-  --bg-3:      #181818;
-  --border:    #222222;
-  --text:      #f0ece4;
-  --text-muted:#6b6b6b;
-  --accent:    #60a5fa;
-  --accent-dim:#3b82f6;
-  --accent-glow: rgba(96, 165, 250, 0.15);
-  --accent-fill: rgba(96, 165, 250, 0.04);
-  --white:     #ffffff;
+    /* ── Hero headline ─────────────────────────── */
+    .hero-headline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.2s forwards;
+    }
+    .hero-headline .highlight {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent);
+    }
 
-  --font-display: 'DM Sans', sans-serif;
-  --font-body:    'Inter', sans-serif;
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 40ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.35s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.5s forwards;
+    }
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.65s forwards;
+    }
+    .hero-proof-line { width: 28px; height: 1px; background: var(--border); }
+    .hero-proof-text { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; font-style: italic; }
+    .hero-proof-text strong { color: var(--text); font-weight: 500; font-style: normal; }
 
-  --max-w: 1100px;
-  --nav-h: 72px;
+    /* ── Hero image frame ──────────────────────── */
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.3s forwards;
+    }
 
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
+    /* ── CTA band ──────────────────────────────── */
+    .cta-band { padding: 5rem 2rem; background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-band-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
 
-/* ── Reset ─────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
+    @media (max-width: 768px) {
+      .cta-band-inner { flex-direction: column; }
+      .hero-headline { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+    }
+  </style>
+</head>
+<body>
 
-/* ── Nav ───────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  height: var(--nav-h);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
-  background: rgba(10,10,10,0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
-}
-.nav-logo {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  z-index: 2;
-}
-.nav-logo span { color: var(--accent); }
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="Nutmilk-Icon.svg" alt="Nutmilk icon" style="width:32px;height:32px;display:inline-block;vertical-align:middle;margin-right:0.3rem;position:relative;top:-1px;" />Nutmilk<span>.</span></a>
+    <div class="nav-pill">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <span class="nav-cta-wrap"><span class="nav-cta-spinner"></span><a href="contact.html" class="nav-cta"><span class="nav-cta-text">Get in Touch</span><span class="nav-cta-icon"><svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle" onclick="
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.getElementById('navToggle');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    ">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
+  </nav>
 
-/* Floating pill */
-.nav-pill {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: rgba(20,20,20,0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 999px;
-  padding: 0.35rem 0.35rem 0.35rem 1.25rem;
-}
-.nav-pill a {
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav-pill a:hover,
-.nav-pill a.active {
-  color: var(--text);
-  background: rgba(255,255,255,0.06);
-}
-/* ── Nav CTA — glow spin border + hover white fill ── */
-.nav-cta-wrap {
-  position: relative;
-  border-radius: 999px;
-  padding: 2px;
-  overflow: hidden;
-  display: inline-flex;
-  flex-shrink: 0;
-}
-.nav-cta-spinner {
-  position: absolute;
-  inset: -50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    #1A8FE3 15%,
-    #2CB89A 35%,
-    #3BBFA0 45%,
-    transparent 55%,
-    transparent 100%
-  );
-  animation: spinGlow 4s linear infinite;
-}
-@keyframes spinGlow {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.nav-pill .nav-cta {
-  position: relative !important;
-  z-index: 1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  color: #ffffff !important;
-  background: #0a0a0a !important;
-  padding: 0.42rem 0.42rem 0.42rem 1rem !important;
-  border-radius: 999px !important;
-  letter-spacing: 0.02em !important;
-  overflow: hidden !important;
-  transition: color 0.3s !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-}
-.nav-pill .nav-cta::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: #ffffff !important;
-  transform: translateX(100%) !important;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  border-radius: 999px !important;
-  z-index: 0 !important;
-}
-.nav-pill .nav-cta:hover::before { transform: translateX(0) !important; }
-.nav-pill .nav-cta:hover { color: #0a0a0a !important; }
-.nav-cta-text {
-  position: relative;
-  z-index: 1;
-}
-.nav-cta-icon {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  flex-shrink: 0;
-  transition: background 0.3s, color 0.3s;
-  color: #ffffff;
-}
-.nav-cta-icon svg {
-  transform: rotate(-45deg);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.nav-pill .nav-cta:hover .nav-cta-icon {
-  background: rgba(0,0,0,0.12);
-  color: #0a0a0a;
-}
-.nav-pill .nav-cta:hover .nav-cta-icon svg { transform: rotate(0deg); }
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+    <a href="work.html">Our Work</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Get in Touch</a>
+  </div>
 
-/* Mobile nav toggle */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-  z-index: 2;
-}
-.nav-toggle .bar {
-  display: block;
-  width: 24px;
-  height: 1.5px;
-  background: var(--text);
-  transition: transform 0.35s var(--ease), opacity 0.25s, width 0.3s;
-  transform-origin: center;
-}
-.nav-toggle.open .bar1 {
-  transform: translateY(6.5px) rotate(45deg);
-}
-.nav-toggle.open .bar2 {
-  opacity: 0;
-  width: 0;
-}
-.nav-toggle.open .bar3 {
-  transform: translateY(-6.5px) rotate(-45deg);
-}
-.nav-mobile-menu {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: var(--nav-h);
-  left: 0; right: 0;
-  background: rgba(10,10,10,0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  padding: 1.5rem 2rem 2rem;
-  gap: 1.25rem;
-  z-index: 99;
-}
-.nav-mobile-menu.open { display: flex; }
-.nav-mobile-menu a {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 400;
-}
-.nav-mobile-menu a:hover { color: var(--text); }
+  <main>
 
-/* ── Page wrapper ──────────────────────────────── */
-main { padding-top: var(--nav-h); }
-.container {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-.section { padding: 6rem 0; }
-.section-sm { padding: 3rem 0; }
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-badge">Available for new projects</div>
+          <h1 class="hero-headline">Sharp design.<br /><span class="highlight">Smarter</span><br />business.</h1>
+          <p class="hero-sub">Nutmilk helps small businesses build a brand worth noticing — and plug in AI tools that actually save you time.</p>
+          <div class="hero-actions">
+            <a href="services.html" class="btn-pill">
+              <span class="btn-pill-text">See What We Do</span>
+              <span class="btn-pill-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="hero-proof">
+            <div class="hero-proof-line"></div>
+            <p class="hero-proof-text"><strong>One agency.</strong> Design, AI &amp; strategy — built for small business.</p>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-image-frame">
+            <video src="leaf-hero-video.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
 
-/* ── Hero ──────────────────────────────────────── */
-.hero {
-  min-height: calc(100vh - var(--nav-h));
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 5rem 2rem 4rem;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  right: -5%;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(96,165,250,0.05) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -20%;
-  left: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(96,165,250,0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.hero-left {}
-.hero-right {
-  position: relative;
-}
-.hero-image-frame {
-  width: 100%;
-  aspect-ratio: 3/4;
-  border-radius: 24px;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  position: relative;
-}
-.hero-image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  color: var(--text-muted);
-}
-.hero-image-placeholder svg {
-  opacity: 0.3;
-}
-.hero-image-placeholder p {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.4;
-}
-.hero-image-tag {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  right: 1.25rem;
-  background: rgba(10,10,10,0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 0.85rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.hero-image-tag-text {
-  font-size: 0.78rem;
-  color: var(--text);
-  font-weight: 500;
-}
-.hero-image-tag-sub {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  margin-top: 0.1rem;
-}
-.hero-image-tag-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px #4ade80;
-  flex-shrink: 0;
-}
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-item"><span>✦</span> Brand Identity</div>
+        <div class="marquee-item"><span>✦</span> AI Automations</div>
+        <div class="marquee-item"><span>✦</span> Web Design</div>
+        <div class="marquee-item"><span>✦</span> Design Critique</div>
+        <div class="marquee-item"><span>✦</span> Small Business AI</div>
+        <div class="marquee-item"><span>✦</span> Brand Strategy</div>
+        <div class="marquee-item"><span>✦</span> Brand Identity</div>
+        <div class="marquee-item"><span>✦</span> AI Automations</div>
+        <div class="marquee-item"><span>✦</span> Web Design</div>
+        <div class="marquee-item"><span>✦</span> Design Critique</div>
+        <div class="marquee-item"><span>✦</span> Small Business AI</div>
+        <div class="marquee-item"><span>✦</span> Brand Strategy</div>
+      </div>
+    </div>
+    </div>
 
-/* ── Buttons ───────────────────────────────────── */
-.btn {
-  display: inline-block;
-  padding: 0.85rem 2rem;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  border-radius: 999px;
-  transition: all 0.2s var(--ease);
-  cursor: pointer;
-  border: none;
-}
-.btn-primary { background: var(--accent); color: var(--bg); }
-.btn-primary:hover { background: var(--accent-dim); }
-.btn-ghost {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+    <!-- SERVICES PREVIEW -->
+    <section class="section">
+      <div class="container">
+        <p class="label">What We Do</p>
+        <h2 class="section-title">Three ways we make<br /><em>your business better</em></h2>
+        <p class="section-sub">Whether you need a brand refresh, an AI shortcut, or an honest eye on your design — we've got you.</p>
+        <div class="card-grid">
 
-/* Pill CTA button */
-.btn-pill {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 999px;
-  padding: 0.45rem 0.45rem 0.45rem 1.4rem;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--text);
-  overflow: hidden;
-  transition: border-color 0.3s, color 0.3s;
-  cursor: pointer;
-  text-decoration: none;
-}
-.btn-pill::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #ffffff;
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 999px;
-}
-.btn-pill:hover::before { transform: translateX(0); }
-.btn-pill:hover { border-color: #ffffff; color: #0a0a0a; }
-.btn-pill-text {
-  position: relative;
-  z-index: 1;
-  transition: color 0.3s;
-}
-.btn-pill:hover .btn-pill-text { color: #0a0a0a; }
-.btn-pill-icon {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
-  flex-shrink: 0;
-}
-.btn-pill-icon svg {
-  transform: rotate(-45deg);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-pill:hover .btn-pill-icon { background: #0a0a0a; color: #ffffff; }
-.btn-pill:hover .btn-pill-icon svg { transform: rotate(0deg); }
+          <!-- UX Review -->
+          <div class="card">
+            <div style="width:24px;height:24px;margin-bottom:1.5rem;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Magnifying glass with a cursor inside — represents UX review/inspection -->
+                <circle cx="10.5" cy="10.5" r="6.5" stroke="#60a5fa" stroke-width="1.5"/>
+                <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="10.5" cy="10.5" r="2.5" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="1.5 1.5"/>
+              </svg>
+            </div>
+            <h3>UX Review</h3>
+            <p>A sharp, honest audit of your existing website or brand — with a clear action plan to fix what's holding you back.</p>
+          </div>
 
-/* ── Marquee ───────────────────────────────────── */
-.marquee-wrap {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
-  overflow: hidden;
-  background: var(--bg-2);
-}
-.marquee-track {
-  display: flex;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: marquee 28s linear infinite;
-}
-.marquee-item {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-.marquee-item span { color: var(--accent); margin-right: 3rem; }
+          <!-- Website Build -->
+          <div class="card">
+            <div style="width:24px;height:24px;margin-bottom:1.5rem;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Browser window with code lines — represents website build -->
+                <rect x="2" y="4" width="20" height="16" rx="3" stroke="#60a5fa" stroke-width="1.5"/>
+                <line x1="2" y1="9" x2="22" y2="9" stroke="#60a5fa" stroke-width="1.5"/>
+                <circle cx="5.5" cy="6.5" r="1" fill="#60a5fa"/>
+                <circle cx="8.5" cy="6.5" r="1" fill="#60a5fa"/>
+                <line x1="6" y1="13" x2="10" y2="13" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="6" y1="16" x2="14" y2="16" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M16 12.5L18.5 14.5L16 16.5" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Website Build</h3>
+            <p>A fast, clean, custom website built to represent your business and convert visitors into paying customers.</p>
+          </div>
 
-/* ── Section labels ────────────────────────────── */
-.label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1rem;
-}
-.section-title em { font-style: italic; color: var(--text-muted); font-weight: 300; }
-.section-sub {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  max-width: 48ch;
-  line-height: 1.7;
-  font-weight: 300;
-}
+          <!-- Automation Programme -->
+          <div class="card">
+            <div style="width:24px;height:24px;margin-bottom:1.5rem;flex-shrink:0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Gear with circular arrows — automation/process -->
+                <!-- Circular arrow top-left -->
+                <path d="M4.5 9A8 8 0 0 1 19 8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+                <polyline points="19,5 19,8 16,8" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Circular arrow bottom-right -->
+                <path d="M19.5 15A8 8 0 0 1 5 16" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/>
+                <polyline points="5,19 5,16 8,16" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Gear body -->
+                <circle cx="12" cy="12" r="2.2" stroke="#60a5fa" stroke-width="1.3"/>
+                <path d="M12 7.5V9M12 15v1.5M7.5 12H9M15 12h1.5M8.9 8.9l1.05 1.05M14.05 14.05l1.05 1.05M8.9 15.1l1.05-1.05M14.05 9.95l1.05-1.05" stroke="#60a5fa" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Automation Programme</h3>
+            <p>We plug AI into the repetitive parts of your business so you can spend your time on the things only you can do.</p>
+          </div>
 
-/* ── Cards ─────────────────────────────────────── */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem;
-  margin-top: 3.5rem;
-}
-.card {
-  background: var(--accent-fill);
-  border: 1px solid var(--accent-glow);
-  border-radius: 16px;
-  padding: 2.5rem;
-  transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(96,165,250,0.3), transparent);
-}
-.card:hover {
-  background: rgba(96,165,250,0.07);
-  border-color: rgba(96,165,250,0.3);
-  transform: translateY(-3px);
-}
-.card-num {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-  display: block;
-  text-transform: uppercase;
-}
-.card h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin-bottom: 0.75rem;
-}
-.card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+        </div>
+        <div style="margin-top:2.5rem;">
+          <a href="services.html" class="btn-pill">
+            <span class="btn-pill-text">All Services</span>
+            <span class="btn-pill-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-/* ── Work grid ─────────────────────────────────── */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 4rem;
-}
-.work-item {
-  position: relative;
-  aspect-ratio: 4/3;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  border-radius: 16px;
-}
-.work-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--border);
-}
-.work-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10,10,10,0.85);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease);
-}
-.work-item:hover .work-overlay { opacity: 1; }
-.work-overlay h4 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
-.work-overlay p { font-size: 0.8rem; color: var(--text-muted); }
+    <!-- WORK PREVIEW -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <p class="label">Selected Work</p>
+        <h2 class="section-title">A few things<br /><em>we're proud of</em></h2>
+        <div class="work-grid">
+          <div class="work-item">
+            <div class="work-placeholder">Project Image</div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
+          </div>
+          <div class="work-item">
+            <div class="work-placeholder">Project Image</div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
+          </div>
+          <div class="work-item">
+            <div class="work-placeholder">Project Image</div>
+            <div class="work-overlay"><h4>Coming Soon</h4><p>Portfolio case study</p></div>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem;">
+          <a href="work.html" class="btn-pill">
+            <span class="btn-pill-text">View All Work</span>
+            <span class="btn-pill-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-/* ── Blog list ─────────────────────────────────── */
-.blog-list { margin-top: 4rem; display: flex; flex-direction: column; border-top: 1px solid var(--border); }
-.blog-item {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1.8rem 0;
-  border-bottom: 1px solid var(--border);
-  transition: opacity 0.2s;
-}
-.blog-item:hover { opacity: 0.7; }
-.blog-item-left { flex: 1; }
-.blog-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-.blog-item h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
-.blog-item-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <div class="cta-band-inner">
+        <div>
+          <p class="label">Ready to start?</p>
+          <h2 class="section-title" style="margin-bottom:0;">Let's build something<br /><em>worth talking about.</em></h2>
+        </div>
+        <a href="contact.html" class="btn-pill" style="flex-shrink:0;">
+          <span class="btn-pill-text">Get in Touch</span>
+          <span class="btn-pill-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
 
-/* ── Form ──────────────────────────────────────── */
-.form-wrap { max-width: 600px; margin-top: 4rem; }
-.form-row { margin-bottom: 1.5rem; }
-.form-row label { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
-.form-row input,
-.form-row textarea,
-.form-row select {
-  width: 100%;
-  background: var(--accent-fill);
-  border: 1px solid var(--accent-glow);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 300;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  outline: none;
-  transition: border-color 0.2s;
-  appearance: none;
-}
-.form-row input:focus,
-.form-row textarea:focus,
-.form-row select:focus { border-color: var(--accent); }
-.form-row textarea { resize: vertical; min-height: 140px; }
+  </main>
 
-/* ── Page hero ─────────────────────────────────── */
-.page-hero { padding: 5rem 2rem 4rem; border-bottom: 1px solid var(--border); }
-.page-hero-inner { max-width: var(--max-w); margin: 0 auto; }
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nutmilk<span>.</span></div>
+      <p class="footer-copy">&copy; 2026 Nutmilk. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
 
-/* ── About ─────────────────────────────────────── */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem; }
-.about-values { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
-.about-value { display: flex; gap: 1.2rem; align-items: flex-start; }
-.about-value-num { font-size: 0.68rem; font-weight: 600; color: var(--accent); flex-shrink: 0; padding-top: 4px; letter-spacing: 0.1em; }
-.about-value h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
-.about-value p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
-
-/* ── Footer ────────────────────────────────────── */
-footer { border-top: 1px solid var(--border); padding: 3rem 2rem; }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer-logo { font-size: 1rem; font-weight: 700; color: var(--text); }
-.footer-logo span { color: var(--accent); }
-.footer-copy { font-size: 0.78rem; color: var(--text-muted); }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-size: 0.78rem; color: var(--text-muted); transition: color 0.2s; }
-.footer-links a:hover { color: var(--text); }
-
-/* ── Divider ───────────────────────────────────── */
-.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-/* ── Animations ────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ── Responsive ────────────────────────────────── */
-@media (max-width: 768px) {
-  .nav-pill { display: none; }
-  .nav-toggle { display: flex; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .card-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
-}
+</body>
+</html>

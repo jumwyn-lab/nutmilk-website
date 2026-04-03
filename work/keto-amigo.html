@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,49 +8,95 @@
   <link rel="stylesheet" href="../style.css" />
   <link rel="icon" type="image/svg+xml" href="../Nutmilk-Icon.svg" />
   <style>
+
     .case-wrap {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem 6rem;
     }
+
+    /* Hero — 1400x700 */
     .case-hero {
       width: 100%;
       margin-bottom: 5rem;
     }
     .case-hero img {
       width: 100%;
+      max-width: 1400px;
       height: auto;
+      aspect-ratio: 1400/700;
+      object-fit: cover;
       display: block;
+      margin: 0 auto;
       border-radius: 0 0 20px 20px;
     }
+
+    /* Two-col section layout: meta left, content right */
     .case-section {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 4rem;
       margin-bottom: 4rem;
+      align-items: start;
     }
-    .case-section h2 {
+    .case-meta {}
+    .case-meta-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .case-meta h3 {
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .case-meta ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+    .case-meta ul li {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .case-content h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.025em;
       color: var(--white);
       margin-bottom: 1.25rem;
     }
-    .case-section p {
+    .case-content p {
       font-size: 1rem;
       font-weight: 300;
       color: var(--text);
       line-height: 1.85;
-      max-width: 720px;
     }
+
+    /* Banner — 1200x600 */
     .case-banner {
-      width: 100%;
       margin: 4rem 0;
     }
     .case-banner img {
       width: 100%;
+      max-width: 1200px;
       height: auto;
+      aspect-ratio: 1200/600;
+      object-fit: cover;
       display: block;
       border-radius: 16px;
     }
+
+    /* Windows side by side — each 580x550 */
     .case-windows {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -60,10 +105,15 @@
     }
     .case-windows img {
       width: 100%;
+      max-width: 580px;
       height: auto;
+      aspect-ratio: 580/550;
+      object-fit: cover;
       display: block;
       border-radius: 16px;
     }
+
+    /* Other work */
     .other-work-header {
       display: flex;
       align-items: center;
@@ -95,7 +145,9 @@
       text-transform: uppercase;
       color: var(--border);
     }
-    @media (max-width: 768px) {
+
+    @media (max-width: 900px) {
+      .case-section { grid-template-columns: 1fr; gap: 2rem; }
       .case-windows { grid-template-columns: 1fr; gap: 1.5rem; }
       .other-work-grid { grid-template-columns: 1fr; }
     }
@@ -135,40 +187,69 @@
 
   <main style="padding-top: var(--nav-h);">
 
+    <!-- HERO 1400x700 -->
     <div class="case-hero">
       <img src="amigo-hero.png" alt="Keto Amigo — Ketogenic Lifestyle App" />
     </div>
 
     <div class="case-wrap">
 
+      <!-- BACKGROUND -->
       <div class="case-section">
-        <h2>Background</h2>
-        <p>Keto Amigo was designed for people managing ketogenic lifestyles alongside blood sugar conditions - a user base with real dietary stakes and zero tolerance for friction. The brief called for a full-featured mobile app: smart meal planning, AI recipe generation, restaurant discovery, and health tracking, all unified under a single, approachable product built for daily use.</p>
+        <div class="case-meta">
+          <span class="case-meta-label">Project</span>
+          <h3>What we worked on</h3>
+          <ul>
+            <li>Brand</li>
+            <li>Development</li>
+            <li>UI/UX</li>
+          </ul>
+          <h3>Year completed</h3>
+          <ul>
+            <li>2026</li>
+          </ul>
+        </div>
+        <div class="case-content">
+          <h2>Background</h2>
+          <p>Keto Amigo was designed for people managing ketogenic lifestyles alongside blood sugar conditions - a user base with real dietary stakes and zero tolerance for friction. The brief called for a full-featured mobile app: smart meal planning, AI recipe generation, restaurant discovery, and health tracking, all unified under a single, approachable product built for daily use.</p>
+        </div>
       </div>
 
+      <!-- BANNER 1 — 1200x600 -->
       <div class="case-banner">
         <img src="amigo-banner-1.png" alt="Keto Amigo — App screens overview" />
       </div>
 
+      <!-- CHALLENGES -->
       <div class="case-section">
-        <h2>Challenges</h2>
-        <p>Building Keto Amigo meant taming real complexity. Crafting a cohesive dark-green design system across five distinct feature areas demanded rigorous component discipline. Wiring AI integrations for live recipe generation and real-time pricing data introduced latency challenges to navigate. The hardest task: making dense data flows - macros, insulin logs, weekly meal plans - feel effortless rather than clinical.</p>
+        <div class="case-meta"></div>
+        <div class="case-content">
+          <h2>Challenges</h2>
+          <p>Building Keto Amigo meant taming real complexity. Crafting a cohesive dark-green design system across five distinct feature areas demanded rigorous component discipline. Wiring AI integrations for live recipe generation and real-time pricing data introduced latency challenges to navigate. The hardest task: making dense data flows - macros, insulin logs, weekly meal plans - feel effortless rather than clinical.</p>
+        </div>
       </div>
 
+      <!-- WINDOWS — each 580x550 -->
       <div class="case-windows">
         <img src="amigo-window-1.png" alt="Keto Amigo — App window detail 1" />
         <img src="amigo-window-2.png" alt="Keto Amigo — App window detail 2" />
       </div>
 
+      <!-- OUTCOMES -->
       <div class="case-section">
-        <h2>Outcomes</h2>
-        <p>The result is a polished, production-ready companion that makes keto living genuinely manageable. A unified design language ties every feature together, while AI-powered recipe generation and restaurant radar work seamlessly in real time. Users move fluidly between meal planning, shopping, and health tracking - complex data made simple, and a product that feels as considered as the lifestyle it supports.</p>
+        <div class="case-meta"></div>
+        <div class="case-content">
+          <h2>Outcomes</h2>
+          <p>The result is a polished, production-ready companion that makes keto living genuinely manageable. A unified design language ties every feature together, while AI-powered recipe generation and restaurant radar work seamlessly in real time. Users move fluidly between meal planning, shopping, and health tracking - complex data made simple, and a product that feels as considered as the lifestyle it supports.</p>
+        </div>
       </div>
 
+      <!-- BANNER 2 — 1200x600 -->
       <div class="case-banner">
         <img src="amigo-banner-2.png" alt="Keto Amigo — Final screens" />
       </div>
 
+      <!-- OTHER WORK -->
       <div style="margin-top: 5rem;">
         <div class="other-work-header">
           <h2>Other work</h2>

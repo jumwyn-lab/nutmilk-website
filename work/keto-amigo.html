@@ -1,1 +1,206 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keto Amigo — Nutmilk Work</title>
+  <meta name="description" content="Keto Amigo — a full-featured ketogenic lifestyle app designed by Nutmilk." />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/svg+xml" href="../Nutmilk-Icon.svg" />
+  <style>
+    .case-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .case-hero {
+      width: 100%;
+      margin-bottom: 5rem;
+    }
+    .case-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0 0 20px 20px;
+    }
+    .case-section {
+      margin-bottom: 4rem;
+    }
+    .case-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .case-section p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      max-width: 720px;
+    }
+    .case-banner {
+      width: 100%;
+      margin: 4rem 0;
+    }
+    .case-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+    .case-windows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 4rem 0;
+    }
+    .case-windows img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+    .other-work-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .other-work-header h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+    }
+    .other-work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .other-work-tile {
+      aspect-ratio: 4/3;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--border);
+    }
+    @media (max-width: 768px) {
+      .case-windows { grid-template-columns: 1fr; gap: 1.5rem; }
+      .other-work-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo"><img src="../Nutmilk-Icon.svg" alt="Nutmilk icon" style="width:32px;height:32px;display:inline-block;vertical-align:middle;margin-right:0.3rem;position:relative;top:-1px;" />Nutmilk<span>.</span></a>
+    <div class="nav-pill">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html" class="active">Work</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../about.html">About</a>
+      <span class="nav-cta-wrap"><span class="nav-cta-spinner"></span><a href="../contact.html" class="nav-cta"><span class="nav-cta-text">Get in Touch</span><span class="nav-cta-icon"><svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" id="navToggle" onclick="
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.getElementById('navToggle');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    ">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../services.html">Services</a>
+    <a href="../work.html">Our Work</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Get in Touch</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+
+    <div class="case-hero">
+      <img src="amigo-hero.png" alt="Keto Amigo — Ketogenic Lifestyle App" />
+    </div>
+
+    <div class="case-wrap">
+
+      <div class="case-section">
+        <h2>Background</h2>
+        <p>Keto Amigo was designed for people managing ketogenic lifestyles alongside blood sugar conditions - a user base with real dietary stakes and zero tolerance for friction. The brief called for a full-featured mobile app: smart meal planning, AI recipe generation, restaurant discovery, and health tracking, all unified under a single, approachable product built for daily use.</p>
+      </div>
+
+      <div class="case-banner">
+        <img src="amigo-banner-1.png" alt="Keto Amigo — App screens overview" />
+      </div>
+
+      <div class="case-section">
+        <h2>Challenges</h2>
+        <p>Building Keto Amigo meant taming real complexity. Crafting a cohesive dark-green design system across five distinct feature areas demanded rigorous component discipline. Wiring AI integrations for live recipe generation and real-time pricing data introduced latency challenges to navigate. The hardest task: making dense data flows - macros, insulin logs, weekly meal plans - feel effortless rather than clinical.</p>
+      </div>
+
+      <div class="case-windows">
+        <img src="amigo-window-1.png" alt="Keto Amigo — App window detail 1" />
+        <img src="amigo-window-2.png" alt="Keto Amigo — App window detail 2" />
+      </div>
+
+      <div class="case-section">
+        <h2>Outcomes</h2>
+        <p>The result is a polished, production-ready companion that makes keto living genuinely manageable. A unified design language ties every feature together, while AI-powered recipe generation and restaurant radar work seamlessly in real time. Users move fluidly between meal planning, shopping, and health tracking - complex data made simple, and a product that feels as considered as the lifestyle it supports.</p>
+      </div>
+
+      <div class="case-banner">
+        <img src="amigo-banner-2.png" alt="Keto Amigo — Final screens" />
+      </div>
+
+      <div style="margin-top: 5rem;">
+        <div class="other-work-header">
+          <h2>Other work</h2>
+          <a href="../work.html" class="btn-pill">
+            <span class="btn-pill-text">View All</span>
+            <span class="btn-pill-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+        <div class="other-work-grid">
+          <div class="other-work-tile">Coming soon</div>
+          <div class="other-work-tile">Coming soon</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Nutmilk<span>.</span></div>
+      <p class="footer-copy">&copy; 2026 Nutmilk. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../work.html">Work</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
